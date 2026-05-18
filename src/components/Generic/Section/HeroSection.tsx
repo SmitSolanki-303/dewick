@@ -7,13 +7,36 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen bg-black text-white flex items-center overflow-hidden">
-      <div className="w-full min-h-screen flex flex-col lg:flex-row">
+      <div className="w-full flex flex-col lg:flex-row">
+        {/* Mobile Image - Only visible on mobile/tablet, shown at top */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="block lg:hidden w-full h-[50vh] md:h-[60vh] relative"
+        >
+          <Image
+            src="/images/hero-image.avif"
+            alt="Creative workspace"
+            fill
+            className="object-cover object-center grayscale object-top"
+            priority
+            quality={85}
+            sizes="100vw"
+          />
+          {/* Gradient overlay for smooth transition to content */}
+          <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black" />
+        </motion.div>
+
         {/* Left Content - Takes about 45% on desktop, full width on mobile */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="w-full lg:w-[45%] flex flex-col justify-between px-4 md:px-8 lg:px-12 xl:px-16 py-12 md:py-16 lg:py-20 min-h-screen"
+          className="w-full lg:w-[45%] flex flex-col justify-between px-4 md:px-8 lg:px-12 xl:px-16 py-12 md:py-16 lg:py-20 lg:min-h-screen"
         >
           {/* Main Content */}
           <div className="flex-1 flex flex-col justify-center space-y-8 md:space-y-10 lg:space-y-12">
@@ -52,7 +75,7 @@ export default function HeroSection() {
             variants={fadeUp}
             className="flex items-center gap-3 md:gap-4 mt-8 md:mt-12"
           >
-            <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden bg-zinc-800 border border-white/10 flex-shrink-0">
+            <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden bg-zinc-800 border border-white/10 shrink-0">
               <div className="w-full h-full flex items-center justify-center text-zinc-400 text-sm md:text-base font-medium">
                 DP
               </div>
@@ -91,23 +114,6 @@ export default function HeroSection() {
             />
           </div>
         </motion.div>
-
-        {/* Mobile Background Image - Only visible on mobile/tablet */}
-        <div className="absolute inset-0 lg:hidden -z-10">
-          <div className="relative w-full h-full">
-            <Image
-              src="/images/hero-image.avif"
-              alt="Creative workspace background"
-              fill
-              className="object-cover object-center grayscale opacity-20"
-              priority
-              quality={60}
-              sizes="100vw"
-            />
-            {/* Dark overlay for better text readability */}
-            <div className="absolute inset-0 bg-black/60" />
-          </div>
-        </div>
       </div>
     </section>
   );

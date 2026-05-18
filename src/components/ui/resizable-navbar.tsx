@@ -188,8 +188,8 @@ export const MobileNav = ({ children, className, visible, scrollProgress = 0 }: 
       }}
       style={{
         width: scrollProgress > 0 ? `${100 - (10 * scrollProgress)}%` : "100%",
-        paddingRight: `${12 * scrollProgress}px`,
-        paddingLeft: `${12 * scrollProgress}px`,
+        paddingRight: `${20 * scrollProgress}px`,
+        paddingLeft: `${20 * scrollProgress}px`,
         borderRadius: scrollProgress > 0 ? "1rem" : "2rem",
       }}
       transition={{
@@ -198,7 +198,7 @@ export const MobileNav = ({ children, className, visible, scrollProgress = 0 }: 
         damping: 30,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-4 lg:hidden",
         className,
       )}
     >

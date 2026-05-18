@@ -1,9 +1,13 @@
 import HeroSection from "@/components/Generic/Section/HeroSection"
+import TextSection from "@/components/Generic/Section/TextSection"
 
 export default function Home() {
   return (
     <main>
       <HeroSection />
+      
+      {/* Text Section */}
+      <TextSection />
       
       {/* Additional sections for scroll testing */}
       <section id="work" className="min-h-screen flex items-center justify-center bg-neutral-900">
