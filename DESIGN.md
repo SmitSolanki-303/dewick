@@ -33,91 +33,52 @@ The system must prioritize:
 
 ---
 
-# Core Visual Identity
-
-## Visual Characteristics
-
-The interface must use:
-- dark surfaces
-- soft layered backgrounds
-- subtle borders
-- muted secondary text
-- glassmorphism-inspired overlays
-- minimal gradients
-- soft shadows
-- smooth motion transitions
-
-The interface must avoid:
-- neon glow effects
-- heavy gradients
-- exaggerated shadows
-- overly colorful accents
-- cluttered spacing
-- inconsistent typography
-
----
-
-# Layout System
-
-## Container Widths
-
-```ts
-container.default = "max-w-7xl"
-container.content = "max-w-5xl"
-container.narrow = "max-w-3xl"
-```
-
----
-
-## Responsive Padding
-
-```ts
-desktop = "px-8"
-tablet = "px-6"
-mobile = "px-4"
-```
-
----
-
-## Section Spacing
-
-```ts
-desktop = "py-28"
-tablet = "py-20"
-mobile = "py-16"
-```
-
----
-
-## Grid System
-
-```ts
-desktop = "grid-cols-12"
-tablet = "grid-cols-6"
-mobile = "grid-cols-1"
-```
-
----
-
 # Typography System
 
 ## Font Family
 
 ```ts
-font.primary = "Inter"
+font.body = "Inter" // Body text, paragraphs
+font.display = "Sentient Variable" // H1 headings and special labels
+```
+
+---
+
+## Font Usage
+
+### Automatic Application
+- **Body text**: All text uses Inter by default
+- **H1 headings**: Automatically use Sentient Variable font
+
+### Manual Application (Font Token)
+Use the `font-display` utility class for special labels, featured text, or custom headings:
+
+```tsx
+// Special label
+<span className="font-display text-xs uppercase tracking-wider">Featured</span>
+
+// Custom heading (not h1)
+<div className="font-display text-4xl font-semibold">Section Title</div>
+
+// Hero subheading
+<p className="font-display text-2xl font-medium">Tagline text</p>
+
+// Button with display font
+<button className="font-display font-bold">Get Started</button>
 ```
 
 ---
 
 ## Typography Hierarchy
 
-### Hero Heading
+### Hero Heading (H1)
 
 ```ts
 text = "text-6xl md:text-7xl"
 weight = "font-semibold"
 tracking = "tracking-tight"
-lineHeight = "leading-[1]"
+lineHeight = "leading-none"
+font = "font-display" // Sentient Variable (automatic)
 ```
 
 ---
