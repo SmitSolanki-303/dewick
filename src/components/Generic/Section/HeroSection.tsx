@@ -6,7 +6,8 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-black text-white flex items-center overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden">
+      <div className="container bg-black text-white flex items-center">
       <div className="w-full flex flex-col lg:flex-row">
         {/* Mobile Image - Only visible on mobile/tablet, shown at top */}
         <motion.div
@@ -36,7 +37,7 @@ export default function HeroSection() {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="w-full lg:w-[45%] flex flex-col justify-between px-4 md:px-8 lg:px-12 xl:px-16 py-12 md:py-16 lg:py-20 lg:min-h-screen"
+          className="w-full lg:w-[45%] flex flex-col justify-between py-12 md:py-16 lg:py-20 lg:min-h-screen"
         >
           {/* Main Content */}
           <div className="flex-1 flex flex-col justify-center space-y-8 md:space-y-10 lg:space-y-12">
@@ -114,6 +115,7 @@ export default function HeroSection() {
             />
           </div>
         </motion.div>
+      </div>
       </div>
     </section>
   );

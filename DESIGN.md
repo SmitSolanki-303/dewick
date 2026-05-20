@@ -505,3 +505,32 @@ Before shipping:
 - long content must remain readable
 - animations must remain performant
 - accessibility must be preserved
+
+---
+
+# Design Guidelines — Container-first layout
+
+Purpose
+- Use a single source of truth for page/container layout. All components that require page-level or section-level layout MUST use class="container" and rely on global.css to provide spacing, max-width, and responsive breakpoints.
+
+Rules
+- Markup:
+  - Use: <div className="container">…</div>
+  - Do not apply additional layout/spacing classes on the container element.
+- Styling:
+  - global.css defines `.container`, internal helpers, and breakpoint rules. Do not move those utilities into components.
+- Component authors:
+  - Keep component markup minimal. Let `.container` manage the overall rhythm.
+  - Use component-level utilities only for visual styling (typography, color, badges) or interaction states.
+- Accessibility & Responsiveness:
+  - The `.container` must preserve spacing for focus outlines and long content.
+  - Components must remain responsive when placed inside `.container`.
+- Examples:
+  - Correct:
+    - <section className="container"> ... </section>
+  - Incorrect:
+    - <section className="container max-w-7xl px-4 md:px-6"> ... </section>
+
+Notes
+- This guideline complements existing AGENTS.md rules (spacing rhythm, max-w-7xl patterns) by centralizing them in `.container`.
+- Update any existing components that currently use direct layout utilities to rely on `.container`.
