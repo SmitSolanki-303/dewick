@@ -286,6 +286,18 @@ Agents must never:
 
 ---
 
+# Container-only class rule (NEW)
+- All layout wrappers in markup MUST use the single class "container" and nothing else.
+- Do not add layout, spacing, max-width, or padding utility classes (e.g. max-w-7xl, px-4, py-16) directly on elements.
+- All visual/layout rules (max-width, padding, gutters, responsive breakpoints) are implemented in global.css under the `.container` rule and its internal utility helpers. Components should rely on `.container` to provide the preferred spacing rhythm and responsive behavior.
+- Exceptions:
+  - Small, presentational utility classes (color, text-size, badges) are allowed inside components only when they do not conflict with container-provided layout.
+  - Interactive state classes (focus-visible, hover) remain allowed to define accessibility and interaction states.
+- Rationale: centralizing layout in `.container` preserves consistency, simplifies markup, and prevents duplicated spacing rules across components.
+- Enforcement: update component reviews and lint rules to flag any markup using layout utilities outside `.container`.
+
+---
+
 # Final Output Requirements
 
 Generated code must:

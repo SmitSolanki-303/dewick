@@ -8,16 +8,9 @@ import { workItems } from "@/lib/work";
 
 export default function OurWorkSection() {
   return (
-    <section
-      id="our-work"
-      className="bg-black text-white"
-      aria-labelledby="our-work-title"
-    >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-28">
-        <h2
-          id="our-work-title"
-          className="text-3xl md:text-4xl font-semibold mb-8"
-        >
+    <section id="our-work" className="bg-black text-white" aria-labelledby="our-work-title">
+      <div className="container">
+        <h2 id="our-work-title" className="text-3xl md:text-4xl font-semibold mb-8">
           Selected Work
         </h2>
 
@@ -43,7 +36,6 @@ export default function OurWorkSection() {
                   href={`/work/${it.id}`}
                   className="block overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/30"
                 >
-                  {/* Image wrapper: ensures hover scale is clipped and capped at 450px */}
                   <div className="relative w-full bg-neutral-900 overflow-hidden rounded-t-2xl max-h-[450px]">
                     <div className="w-full h-full">
                       <img
@@ -65,15 +57,12 @@ export default function OurWorkSection() {
                       </span>
                     </div>
 
-                    <h3
-                      id={`work-title-${it.id}`}
-                      className="text-lg md:text-xl font-semibold leading-tight"
-                    >
+                    <h3 id={`work-title-${it.id}`} className="text-lg md:text-xl font-semibold leading-tight">
                       {it.title}
                     </h3>
 
                     <p className="mt-2 text-sm text-neutral-400 max-w-3xl">
-                      {it.desc}
+                      {it.shortDesc}
                     </p>
                   </div>
                 </Link>
